@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        background-color: rgb(255, 255, 255);
+    }
+
+    #myProgress {
+        width: 100%;
+        background-color: rgb(247, 217, 255);
+    }
+
+    #myBar {
+        width: 1%;
+        height: 30px;
+        background-color: #6f42c1;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    img {
+        max-width: 100%
+    }
+
+    .image {
+        margin-top:50px;
+        flex-basis: 40%;
+        width: 100%;
+        height: auto
+    }
+
+    .text {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        padding-left: 50px;
+        margin-left: -30%;
+        margin-top:50px
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Applitools Working</title>
+    <script>
+        var i = 0;
+        function move() {
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 1;
+                var id = setInterval(frame, 900);
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="move()">
+    <div class="container">
+
+        <div class="image">
+            <img src="images/eyes.png" width="80px" height="80px">
+        </div>
+        <div class="text">
+            <h1>Next step - Ultra Fast Grid Rendering</h1>
+        </div>
+        
+
+    </div>
+
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+    <div class="image">
+        <img src="images/ufg.png">
+    </div>
+
+</body>
+
+</html>
