@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ACME demo app</title>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <meta content="Applitools Visual testing" name="keywords">
+  <meta content="ACME demo app" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="favicon.png" rel="shortcut icon">
+  <link href="apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" type="text/css">
+
+<style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
+
+
+  <link href="css/ft.css" rel="stylesheet">
+  	<script src="./Chart.min.js"></script>
+	<script src="./utils.js"></script>
+	<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+  </style>
+  
+</head>
+
+<body class="menu-position-side menu-side-left full-screen">
+  <div class="all-wrapper solid-bg-all">
+    <!--------------------
+      START - Top Bar
+      -------------------->
+    <div class="top-bar color-scheme-bright">
+      <div class="logo-w menu-size">
+        <a class="logo" href="#">
+          <div class="logo-element"></div>
+          <div class="logo-label">
+            ACME
+          </div>
+        </a>
+      </div>
+
+      <!--------------------
+        START - Top Menu Controls
+        -------------------->
+        
+      <div class="top-menu-controls">
+        <div class="element-search autosuggest-search-activator">
+          <input placeholder="Start typing to search..." type="text">
+        </div>
+
+        <!--------------------
+          START - Messages Link in secondary top menu
+          -------------------->
+        <div class="messages-notifications os-dropdown-trigger os-dropdown-position-left">
+          <i class="os-icon os-icon-mail-14"></i>
+          <div class="new-messages-count">
+            7
+          </div>
+          <div class="os-dropdown light message-list">
+            <ul>
+              <li>
+                <a href="#">
+                  <div class="user-avatar-w">
+                    <img alt="" src="img/avatar1.jpg">
+                  </div>
+                  <div class="message-content">
+                    <h6 class="message-from">
+                      John Mayers
+                    </h6>
+                    <h6 class="message-title">
+                      Account Update
+                    </h6>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="user-avatar-w">
+                    <img alt="" src="img/avatar2.jpg">
+                  </div>
+                  <div class="message-content">
+                    <h6 class="message-from">
+                      Phil Jones
+                    </h6>
+                    <h6 class="message-title">
+                      Secutiry Updates
+                    </h6>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="user-avatar-w">
+                    <img alt="" src="img/avatar3.jpg">
+                  </div>
+                  <div class="message-content">
+                    <h6 class="message-from">
+                      Bekky Simpson
+                    </h6>
+                    <h6 class="message-title">
+                      Vacation Rentals
+                    </h6>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="user-avatar-w">
+                    <img alt="" src="img/avatar4.jpg">
+                  </div>
+                  <div class="message-content">
+                    <h6 class="message-from">
+                      Alice Priskon
+                    </h6>
+                    <h6 class="message-title">
+                      Payment Confirmation
+                    </h6>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--------------------
+          END - Messages Link in secondary top menu
+          -------------------->
+        <!--------------------
+          START - Settings Link in secondary top menu
+          -------------------->
+        <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left">
+          <i class="os-icon os-icon-ui-46"></i>
+          <div class="os-dropdown">
+            <div class="icon-w">
+              <i class="os-icon os-icon-ui-46"></i>
+            </div>
+            <ul>
+              <li>
+                <a href=""><i class="os-icon os-icon-ui-49"></i><span>Profile Settings</span></a>
+              </li>
+              <li>
+                <a href=""><i class="os-icon os-icon-grid-10"></i><span>Billing Info</span></a>
+              </li>
+              <li>
+                <a href=""><i class="os-icon os-icon-ui-44"></i><span>My Invoices</span></a>
+              </li>
+              <li>
+                <a href=""><i class="os-icon os-icon-ui-15"></i><span>Cancel Account</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--------------------
+          END - Settings Link in secondary top menu
+          -------------------->
+        <!--------------------
+          START - User avatar and menu in secondary top menu
+          -------------------->
+        <div class="logged-user-w">
+          <div class="logged-user-i">
+            <div class="avatar-w">
+              <img alt="" src="img/avatar1.jpg">
+            </div>
+          </div>
+        </div>
+        <!--------------------
+          END - User avatar and menu in secondary top menu
+          -------------------->
+      </div>
+      <!--------------------
+        END - Top Menu Controls
+        -------------------->
+    </div>
+    <!--------------------
+      END - Top Bar
+      -------------------->
+    <div class="search-with-suggestions-w">
+      <div class="search-with-suggestions-modal">
+        <div class="element-search">
+          <input class="search-suggest-input" placeholder="Start typing to search..." type="text">
+          <div class="close-search-suggestions">
+            <i class="os-icon os-icon-x"></i>
+          </div>
+          </input>
+        </div>
+        <div class="search-suggestions-group">
+          <div class="ssg-header">
+            <div class="ssg-icon">
+              <div class="os-icon os-icon-box"></div>
+            </div>
+            <div class="ssg-name">
+              Projects
+            </div>
+            <div class="ssg-info">
+              24 Total
+            </div>
+          </div>
+          <div class="ssg-content">
+            <div class="ssg-items ssg-items-boxed">
+              <a class="ssg-item" href="#">
+                <div class="item-media" style="background-image: url(img/company6.png)"></div>
+                <div class="item-name">
+                  Integ<span>ration</span> with API
+                </div>
+              </a><a class="ssg-item" href="#">
+                <div class="item-media" style="background-image: url(img/company7.png)"></div>
+                <div class="item-name">
+                  Deve<span>lopm</span>ent Project
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="search-suggestions-group">
+          <div class="ssg-header">
+            <div class="ssg-icon">
+              <div class="os-icon os-icon-users"></div>
+            </div>
+            <div class="ssg-name">
+              Customers
+            </div>
+            <div class="ssg-info">
+              7 Total
+            </div>
+          </div>
+          <div class="ssg-content">
+            <div class="ssg-items ssg-items-list">
+              <a class="ssg-item" href="#">
+                <div class="item-media" style="background-image: url(img/avatar1.jpg)"></div>
+                <div class="item-name">
+                  John Ma<span>yer</span>s
+                </div>
+              </a><a class="ssg-item" href="#">
+                <div class="item-media" style="background-image: url(img/avatar2.jpg)"></div>
+                <div class="item-name">
+                  Th<span>omas</span> Mullier
+                </div>
+              </a><a class="ssg-item" href="#">
+                <div class="item-media" style="background-image: url(img/avatar3.jpg)"></div>
+                <div class="item-name">
+                  Kim C<span>olli</span>ns
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="search-suggestions-group">
+          <div class="ssg-header">
+            <div class="ssg-icon">
+              <div class="os-icon os-icon-folder"></div>
+            </div>
+            <div class="ssg-name">
+              Files
+            </div>
+            <div class="ssg-info">
+              17 Total
+            </div>
+          </div>
+          <div class="ssg-content">
+            <div class="ssg-items ssg-items-blocks">
+              <a class="ssg-item" href="#">
+                <div class="item-icon">
+                  <i class="os-icon os-icon-file-text"></i>
+                </div>
+                <div class="item-name">
+                  Work<span>Not</span>e.txt
+                </div>
+              </a><a class="ssg-item" href="#">
+                <div class="item-icon">
+                  <i class="os-icon os-icon-film"></i>
+                </div>
+                <div class="item-name">
+                  V<span>ideo</span>.avi
+                </div>
+              </a><a class="ssg-item" href="#">
+                <div class="item-icon">
+                  <i class="os-icon os-icon-database"></i>
+                </div>
+                <div class="item-name">
+                  User<span>Tabl</span>e.sql
+                </div>
+              </a><a class="ssg-item" href="#">
+                <div class="item-icon">
+                  <i class="os-icon os-icon-image"></i>
+                </div>
+                <div class="item-name">
+                  wed<span>din</span>g.jpg
+                </div>
+              </a>
+            </div>
+            <div class="ssg-nothing-found">
+              <div class="icon-w">
+                <i class="os-icon os-icon-eye-off"></i>
+              </div>
+              <span>No files were found. Try changing your query...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="layout-w">
+
+      <!--------------------
+        START - Main Menu
+        -------------------->
+      <div class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
+        <div class="logged-user-w avatar-inline">
+          <div class="logged-user-i">
+            <div class="avatar-w">
+              <img alt="" src="img/avatar1.jpg">
+            </div>
+            <div class="logged-user-info-w">
+              <div class="logged-user-name" id="logged-user-name">
+                Jack Gomez
+              </div>
+              <div class="logged-user-role">
+                Customer
+              </div>
+            </div>
+            <div class="logged-user-toggler-arrow">
+              <div class="os-icon os-icon-chevron-down"></div>
+            </div>
+
+          </div>
+        </div>
+        <h1 class="menu-page-header">
+          Actions
+        </h1>
+        <ul class="main-menu">
+          <li class="sub-header">
+            <span>Card types</span>
+          </li>
+          <li class="selected has-sub-menu">
+            <a href="">
+              <div class="icon-w">
+                <div class="os-icon os-icon-layout"></div>
+              </div>
+              <span>Credit cards</span></a>
+
+          </li>
+          <li class=" has-sub-menu">
+            <a href="">
+              <div class="icon-w">
+                <div class="os-icon os-icon-layers"></div>
+              </div>
+              <span>Debit cards</span></a>
+ 
+          </li>
+          <li class="sub-header">
+            <span>Lending</span>
+          </li>
+          <li class=" has-sub-menu">
+            <a href="">
+              <div class="icon-w">
+                <div class="os-icon os-icon-package"></div>
+              </div>
+              <span>Loans</span></a>
+
+          </li>
+          <li class=" has-sub-menu">
+            <a href="">
+              <div class="icon-w">
+                <div class="os-icon os-icon-package"></div>
+              </div>
+              <span>Mortgages</span></a>
+
+          </li>
+        </ul>
+        <!--
+        <img src="/img/credit-card1.jpg"  width="300px" height="300px" />
+        -->
+      </div>
+      <!--------------------
+        END - Main Menu
+        -------------------->
+        
+      <div class="content-w">
+        <div class="content-i">
+          <div class="content-box">
+            <div class="element-wrapper compact pt-4">
+
+<div id="container" style="width: 100%;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+	<button class="btn btn-warning" style="text-align:center" id="addDataset">Show data for next year</button>
+  
+<canvas id="canvas" style="display: block; width: 1233px; height: 616px;" width="1233" height="616" class="chartjs-render-monitor"></canvas>
+	</div>
+
+
+	<script>
+		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		var color = Chart.helpers.color;
+		var barChartData = {
+			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+			datasets: [{
+				label: '2017',
+				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.red,
+				borderWidth: 1,
+				data: [
+					10, 20, 30, 40, 50, 60, 70
+				]
+			}, {
+				label: '2018',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.blue,
+				borderWidth: 1,
+				data: [
+					15,
+					9,
+					-10,
+					10,
+					40,
+					60,
+					50
+				]
+			}]
+
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					responsive: true,
+					legend: {
+						position: 'top',
+					},
+					title: {
+						display: true,
+						text: 'Expenses and Forecasts Comparison'
+					}
+				}
+			});
+
+		};
+
+		// document.getElementById('randomizeData').addEventListener('click', function() {
+		// 	var zero = Math.random() < 0.2 ? true : false;
+		// 	barChartData.datasets.forEach(function(dataset) {
+		// 		dataset.data = dataset.data.map(function() {
+		// 			return zero ? 0.0 : randomScalingFactor();
+		// 		});
+
+		// 	});
+		// 	window.myBar.update();
+		// });
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var colorName = colorNames[barChartData.datasets.length % colorNames.length];
+			var dsColor = window.chartColors[colorName];
+			var newDataset = {
+				label: 2016 + (barChartData.datasets.length + 1),
+				backgroundColor: color(dsColor).alpha(0.5).rgbString(),
+				borderColor: dsColor,
+				borderWidth: 1,
+				data: []
+			};
+
+			for (var index = 0; index < barChartData.labels.length; ++index) {
+				newDataset.data.push((index +1) * 5);
+			}
+
+			barChartData.datasets.push(newDataset);
+			window.myBar.update();
+		});
+
+		// document.getElementById('addData').addEventListener('click', function() {
+		// 	if (barChartData.datasets.length > 0) {
+		// 		var month = MONTHS[barChartData.labels.length % MONTHS.length];
+		// 		barChartData.labels.push(month);
+
+		// 		for (var index = 0; index < barChartData.datasets.length; ++index) {
+		// 			// window.myBar.addData(randomScalingFactor(), index);
+		// 			barChartData.datasets[index].data.push((index +1) * 5);
+		// 		}
+
+		// 		window.myBar.update();
+		// 	}
+		// });
+
+		// document.getElementById('removeDataset').addEventListener('click', function() {
+		// 	barChartData.datasets.pop();
+		// 	window.myBar.update();
+		// });
+
+		// document.getElementById('removeData').addEventListener('click', function() {
+		// 	barChartData.labels.splice(-1, 1); // remove the label first
+
+		// 	barChartData.datasets.forEach(function(dataset) {
+		// 		dataset.data.pop();
+		// 	});
+
+		// 	window.myBar.update();
+		// });
+	</script>
+
+            </div>
+            <!--START - Transactions Table-->
+            <div class="element-wrapper">
+              <h6 class="element-header">
+                Recent Transactions
+              </h6>
+              <div class="element-box-tp">
+                <div class="table-responsive">
+                  <table id="transactionsTable" class="table table-padded">
+                    <thead>
+                      <tr>
+                        <th id="status" onclick="sortTable(0)" onmouseover="" style="cursor: pointer;">
+                          Status
+                        </th>
+                        <th id="date" onclick="sortTable(1)" onmouseover="" style="cursor: pointer;">
+                          Date
+                        </th>
+                        <th id="description" onclick="sortTable(2)" onmouseover="" style="cursor: pointer;">
+                          Description
+                        </th>
+                        <th id="category" onclick="sortTable(3)" class="text-center" onmouseover="" style="cursor: pointer;">
+                          Category
+                        </th>
+                        <th id="amount" onclick="sortTable(4)" class="text-right" onmouseover="" style="cursor: pointer;">
+                          Amount
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="nowrap">
+                          <span class="status-pill smaller green"></span><span>Complete</span>
+                        </td>
+                        <td>
+                          <span>Today</span><span class="smaller lighter">1:52am</span>
+                        </td>
+                        <td class="cell-with-media">
+                          <img alt="" src="img/company1.png" style="height: 25px;"><span>Starbucks coffee</span>
+                        </td>
+                        <td class="text-center">
+                          <a class="badge badge-success" href="">Restaurant / Cafe</a>
+                        </td>
+                        <td class="text-right bolder nowrap">
+                          <span class="text-success">+ 1,250 USD</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">
+                          <span class="status-pill smaller red"></span><span>Declined</span>
+                        </td>
+                        <td>
+                          <span>Jan 19th</span><span class="smaller lighter">3:22pm</span>
+                        </td>
+                        <td class="cell-with-media">
+                          <img alt="" src="img/company2.png" style="height: 25px;"><span>Stripe Payment Processing</span>
+                        </td>
+                        <td class="text-center">
+                          <a class="badge badge-danger" href="">Finance</a>
+                        </td>
+                        <td class="text-right bolder nowrap">
+                          <span class="text-success">+ 952.23 USD</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">
+                          <span class="status-pill smaller yellow"></span><span>Pending</span>
+                        </td>
+                        <td>
+                          <span>Yesterday</span><span class="smaller lighter">7:45am</span>
+                        </td>
+                        <td class="cell-with-media">
+                          <img alt="" src="img/company3.png" style="height: 25px;"><span>MailChimp Services</span>
+                        </td>
+                        <td class="text-center">
+                          <a class="badge badge-warning" href="">Software</a>
+                        </td>
+                        <td class="text-right bolder nowrap">
+                          <span class="text-danger">- 320 USD</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">
+                          <span class="status-pill smaller yellow"></span><span>Pending</span>
+                        </td>
+                        <td>
+                          <span>Jan 23rd</span><span class="smaller lighter">2:7pm</span>
+                        </td>
+                        <td class="cell-with-media">
+                          <img alt="" src="img/company6.png" style="height: 25px;"><span>Shopify product</span>
+                        </td>
+                        <td class="text-center">
+                          <a class="badge badge-primary" href="">Shopping</a>
+                        </td>
+                        <td class="text-right bolder nowrap">
+                          <span class="text-success">+ 17.99 USD</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">
+                          <span class="status-pill smaller green"></span><span>Complete</span>
+                        </td>
+                        <td>
+                          <span>Jan 7th</span><span class="smaller lighter">9:51am</span>
+                        </td>
+                        <td class="cell-with-media">
+                          <img alt="" src="img/company4.png" style="height: 25px;"><span>Ebay Marketplace</span>
+                        </td>
+                        <td class="text-center">
+                          <a class="badge badge-danger" href="">Ecommerce</a>
+                        </td>
+                        <td class="text-right bolder nowrap">
+                          <span class="text-danger">- 244 USD</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">
+                          <span class="status-pill smaller yellow"></span><span>Pending</span>
+                        </td>
+                        <td>
+                          <span>Jan 9th</span><span class="smaller lighter">7:45pm</span>
+                        </td>
+                        <td class="cell-with-media">
+                          <img alt="" src="img/company7.png" style="height: 25px;"><span> Templates Inc</span>
+                        </td>
+                        <td class="text-center">
+                          <a class="badge badge-primary" href="">Business</a>
+                        </td>
+                        <td class="text-right bolder nowrap">
+                          <span class="text-success">+ 340 USD</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!--END - Transactions Table-->
+  
+        
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="display-type"></div>
+  </div>
+
+  <script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("transactionsTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if(n === 4) {
+        x = parseFloat(x.innerText.replace("USD", "").replace(",", "").replace(/\s/g,""));
+        y = parseFloat(y.innerText.replace("USD", "").replace(",", "").replace(/\s/g,""));
+      } else {
+       x =  x.innerText.toLowerCase()
+       y =  y.innerText.toLowerCase()
+      }
+      if (dir == "asc") {
+        if (x > y) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x < y) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+  </script>
+</body>
+
+</html>

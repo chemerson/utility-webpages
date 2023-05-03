@@ -1,0 +1,11 @@
+{
+  "name": "ACME demo app",
+  "description": "This app hosts the demo app for Applitools' Tutorials",
+  "repository": "https://github.com/applitools/acme-demo-app",
+  "website": "https://wwww.applitools.com",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-static.git"
+    }
+  ]
+}

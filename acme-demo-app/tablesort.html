@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sort a HTML Table Alphabetically</title>
+<link href="css/main.css?version=4.4.0" rel="stylesheet">
+<style>
+body:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: white !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+table {
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+</style>
+</head>
+<body>
+
+<p><strong>Click the headers to sort the table.</strong></p>
+<p>The first time you click, the sorting direction is ascending (A to Z).</p>
+<p>Click again, and the sorting direction will be descending (Z to A):</p>
+
+<table id="myTable" class="table table-striped table-bordered ">
+  <tr>
+    <th id="rank" onclick="sortTable(0)" scope="col">Rank</th>
+    <th id="name" onclick="sortTable(1)" scope="col">Name</th>
+    <th id="Country" onclick="sortTable(2)" scope="col">Country</th>
+  </tr>
+  <tr>
+    <td>10</td>  
+    <td>Berglunds snabbkop</td>
+    <td>Sweden</td>
+  </tr>
+  <tr>
+    <td>4</td>  
+    <td>North/South</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>3</td>  
+    <td>Alfreds Futterkiste</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>  
+    <td>Koniglich Essen</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>5</td>  
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Italy</td>
+  </tr>
+  <tr>
+    <td>8</td>  
+    <td>Paris specialites</td>
+    <td>France</td>
+  </tr>
+  <tr>
+    <td>7</td>  
+    <td>Island Trading</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>6</td>  
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>9</td>  
+    <td>Rma Bl Pikachu
+    </td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>1</td>  
+    <td>Rasdf sdwer
+    </td>
+    <td>Russia</td>
+  </tr>
+ 
+</table>
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
